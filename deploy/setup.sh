@@ -49,9 +49,9 @@ echo "ALFLAG -> Run migrations... DONE"
 echo "ALFLAG -> Supervisor setup..."
 # Setup Supervisor to run our uwsgi process.
 cp $PROJECT_BASE_PATH/profiles-rest-api/deploy/supervisor_profiles_api.conf /etc/supervisor/conf.d/profiles_api.conf
-supervisorctl reread
-supervisorctl update
-supervisorctl restart profiles_api
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl restart profiles_api
 echo "ALFLAG -> Supervisor setup... DONE"
 
 echo "ALFLAG -> Nginx..."
