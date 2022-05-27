@@ -30,7 +30,7 @@ python3 -m venv $VIRTUALENV_BASE_PATH/profiles_api
 echo "ALFLAG -> Virtual env... DONE"
 
 echo "ALFLAG -> Installing requirements txt..."
-$VIRTUALENV_BASE_PATH/profiles_api/bin/sudo pip install -r $PROJECT_BASE_PATH/profiles-rest-api/requirements.txt
+$VIRTUALENV_BASE_PATH/profiles_api/bin/ sudo pip install -r $PROJECT_BASE_PATH/profiles-rest-api/requirements.txt
 echo "ALFLAG -> Installing requirements txt... DONE"
 
 # Run migrations
