@@ -46,12 +46,9 @@ $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
 echo "ALFLAG -> Run migrations... DONE"
 
 
-
-
-
 echo "ALFLAG -> Supervisor setup..."
 # Setup Supervisor to run our uwsgi process.
-cp $PROJECT_BASE_PATH/profiles-rest-api/deploy_v2/supervisor_profiles_api.conf /etc/supervisor/conf.d/profiles_api.conf
+cp $PROJECT_BASE_PATH/profiles-rest-api/deploy/supervisor_profiles_api.conf /etc/supervisor/conf.d/profiles_api.conf
 supervisorctl reread
 supervisorctl update
 supervisorctl restart profiles_api
@@ -59,7 +56,7 @@ echo "ALFLAG -> Supervisor setup... DONE"
 
 echo "ALFLAG -> Nginx..."
 # Setup nginx to make our application accessible.
-cp $PROJECT_BASE_PATH/profiles-rest-api/deploy_v2/nginx_profiles_api.conf /etc/nginx/sites-available/profiles_api.conf
+cp $PROJECT_BASE_PATH/profiles-rest-api/deploy/nginx_profiles_api.conf /etc/nginx/sites-available/profiles_api.conf
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/profiles_api.conf /etc/nginx/sites-enabled/profiles_api.conf
 systemctl restart nginx.service
