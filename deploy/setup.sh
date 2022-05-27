@@ -40,9 +40,9 @@ echo "ALFLAG -> Run migrations and collecstatic..."
 # cd $PROJECT_BASE_PATH/profiles-rest-api/src
 
 # Run migrations and collectstatic
-cd $PROJECT_BASE_PATH
-$PROJECT_BASE_PATH/env/bin/python manage.py migrate
-$PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
+# cd $PROJECT_BASE_PATH
+# $PROJECT_BASE_PATH/env/bin/python manage.py migrate
+# $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
 echo "ALFLAG -> Run migrations... DONE"
 
 
