@@ -36,9 +36,18 @@ $VIRTUALENV_BASE_PATH/profiles_api/bin/pip install djangorestframework
 echo "ALFLAG -> Installing requirements txt... DONE"
 
 # Run migrations
-echo "ALFLAG -> Run migrations..."
+echo "ALFLAG -> Run migrations and collecstatic..."
 # cd $PROJECT_BASE_PATH/profiles-rest-api/src
+
+# Run migrations and collectstatic
+cd $PROJECT_BASE_PATH
+$PROJECT_BASE_PATH/env/bin/python manage.py migrate
+$PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
 echo "ALFLAG -> Run migrations... DONE"
+
+
+
+
 
 echo "ALFLAG -> Supervisor setup..."
 # Setup Supervisor to run our uwsgi process.
@@ -50,7 +59,7 @@ echo "ALFLAG -> Supervisor setup... DONE"
 
 echo "ALFLAG -> Nginx..."
 # Setup nginx to make our application accessible.
-cp $PROJECT_BASE_PATH/profiles-rest-api/deploy_v2nginx_profiles_api.conf /etc/nginx/sites-available/profiles_api.conf
+cp $PROJECT_BASE_PATH/profiles-rest-api/deploy_v2/nginx_profiles_api.conf /etc/nginx/sites-available/profiles_api.conf
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/profiles_api.conf /etc/nginx/sites-enabled/profiles_api.conf
 systemctl restart nginx.service
