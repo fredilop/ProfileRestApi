@@ -37,7 +37,7 @@ echo "ALFLAG -> Installing requirements txt... DONE"
 
 # Run migrations
 echo "ALFLAG -> Run migrations..."
-cd $PROJECT_BASE_PATH/profiles-rest-api/src
+# cd $PROJECT_BASE_PATH/profiles-rest-api/src
 echo "ALFLAG -> Run migrations... DONE"
 
 echo "ALFLAG -> Supervisor setup..."
